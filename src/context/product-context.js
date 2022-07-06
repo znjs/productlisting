@@ -1,10 +1,11 @@
 import { useContext, useReducer } from "react";
 import { createContext } from "react";
-import { products } from "../data";
+import * as data from "../data/products.json";
 import { productReducer } from "../reducer";
 
+const { products } = data;
 const ProductContext = createContext();
-
+console.log(products);
 const ProductProvider = ({ children }) => {
   const initalState = {
     allProducts: products,
