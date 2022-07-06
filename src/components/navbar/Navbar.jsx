@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <div className="bg-blue-500 h-14 flex items-center justify-center">
+    <div className="bg-blue-500 min-h-14 py-4 flex items-center justify-center">
       <div className="flex flex-col mx-2">
         <img
           src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png"
