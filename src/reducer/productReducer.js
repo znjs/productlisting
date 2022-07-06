@@ -52,7 +52,6 @@ export const productReducer = (state, action) => {
   }
 
   if (stateCopy.genderFilter.length) {
-    console.log("filtering by gender");
     stateCopy = {
       ...stateCopy,
       filteredProducts: stateCopy.allProducts.filter((product) =>
