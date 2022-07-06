@@ -90,7 +90,8 @@ export const productReducer = (state, action) => {
   if (
     !stateCopy.genderFilter.length &&
     !stateCopy.sizeFilter.length &&
-    !stateCopy.brandFilter.length
+    !stateCopy.brandFilter.length &&
+    stateCopy.sort === null
   ) {
     stateCopy = {
       ...stateCopy,
