@@ -112,6 +112,16 @@ export const productReducer = (state, action) => {
       ),
     };
   }
+  if (
+    !stateCopy.genderFilter.length &&
+    !stateCopy.sizeFilter.length &&
+    !stateCopy.brandFilter.length
+  ) {
+    stateCopy = {
+      ...stateCopy,
+      filteredProducts: stateCopy.allProducts,
+    };
+  }
 
   return stateCopy;
 };

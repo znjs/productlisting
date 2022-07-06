@@ -28,11 +28,11 @@ const Navbar = () => {
         <i className="fa-solid fa-magnifying-glass mx-2 text-blue-600"></i>
       </div>
       <button className="px-8 py-1 mx-3 bg-white text-blue-600 font-semibold">Login</button>
-      <p className="text-white font-semibold mx-3">Become a Seller</p>
+      <p className="text-white font-semibold mx-3 cursor-pointer">Become a Seller</p>
       <p className="text-white font-semibold mx-3">
-        More&nbsp; <i className="fa-solid fa-angle-down"></i>
+        More&nbsp; <i className="fa-solid fa-angle-down cursor-pointer"></i>
       </p>
-      <p className="text-white font-semibold mx-3">
+      <p className="text-white font-semibold mx-3 cursor-pointer">
         <i className="fa-solid fa-cart-shopping text-lg"></i>&nbsp; Cart
       </p>
     </div>
