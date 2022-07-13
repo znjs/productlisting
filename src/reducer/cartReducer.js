@@ -54,6 +54,11 @@ export const cartReducer = (state, action) => {
         ...state,
         saveForLater: [...state.saveForLater].filter((item) => item._id !== action.payload._id),
       };
+    case "CLEAR_CART":
+      return {
+        ...state,
+        cart: [],
+      };
     default:
       return state;
   }

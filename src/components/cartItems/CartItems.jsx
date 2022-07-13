@@ -13,7 +13,9 @@ export const CartItems = () => {
         {cartState.cart.length > 0 ? (
           cartState.cart.map((item) => <CartCard item={item} key={item._id} />)
         ) : (
-          <div className="text-center">Cart is empty :&nbsp;/</div>
+          <>
+            <div className="text-center">Cart is empty :&nbsp;/</div>
+          </>
         )}
       </div>
       {cartState.saveForLater.length > 0 && (

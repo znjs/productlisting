@@ -1,9 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context";
 
 export const CartSummary = () => {
-  const { cartState } = useCart();
+  const { cartState, cartDispatch } = useCart();
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col mx-3 w-64">
+      <button
+        className="bg-orange-500 py-2 mb-2 text-white font-semibold"
+        onClick={() => {
+          cartDispatch({ type: "CLEAR_CART" });
+          navigate("/");
+        }}>
+        PLACE ORDER
+      </button>
       <div className="bg-white self-start">
         <h1 className="text-gray-400 px-3 py-3 border-b-2 border-gray-300 font-semibold">
           PRICE DETAILS
