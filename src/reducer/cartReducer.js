@@ -14,7 +14,6 @@ export const cartReducer = (state, action) => {
       };
     case "DEC_ITEM_COUNT":
       let removeFlag = state.cart.find((item) => item._id === action.payload._id).count === 1;
-      console.log(removeFlag);
       if (removeFlag) {
         return {
           ...state,

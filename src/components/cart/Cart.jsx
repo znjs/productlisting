@@ -4,7 +4,6 @@ import { CartSummary } from "../cartSummary/CartSummary";
 
 export const Cart = () => {
   const { cartState, cartDispatch } = useCart();
-  console.log(cartState);
   return (
     <>
       <div className="overflow-auto w-full">
