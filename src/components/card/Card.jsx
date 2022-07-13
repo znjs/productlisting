@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context";
 
 const Card = ({ item }) => {
-  const { cartDispatch } = useCart();
+  const { cartDispatch, cartState } = useCart();
   const [wishlist, setWishlist] = useState(false);
+  const navigate = useNavigate();
+  const isPresentInCart = cartState.cart.filter((product) => item._id === product._id);
+
   return (
     <div className="w-[286px] ml-3 mt-2 bg-white hover:shadow-custom self-start">
       <div className="w-full h-[320px] relative">
@@ -48,11 +52,19 @@ const Card = ({ item }) => {
               <span key={idx}>{size}&nbsp;</span>
             ))}
           </div>
-          <button
-            className="bg-green-600 text-white p-2 rounded-md"
-            onClick={() => cartDispatch({ type: "ADD_TO_CART", payload: { item } })}>
-            Add to cart
-          </button>
+          {isPresentInCart.length === 0 ? (
+            <button
+              className="bg-green-600 text-white p-2 rounded-md"
+              onClick={() => cartDispatch({ type: "ADD_TO_CART", payload: { item } })}>
+              Add to cart
+            </button>
+          ) : (
+            <button
+              className="bg-orange-600 text-white p-2 rounded-md"
+              onClick={() => navigate("/cart")}>
+              Go to cart
+            </button>
+          )}
         </div>
       </div>
     </div>
