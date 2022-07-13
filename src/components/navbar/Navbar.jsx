@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-blue-500 min-h-14 py-4 flex items-center justify-center">
-      <div className="flex flex-col mx-2">
+      <div className="flex flex-col mx-2" onClick={() => navigate("/")}>
         <img
           src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png"
           alt="logo"
@@ -27,12 +30,12 @@ const Navbar = () => {
         />
         <i className="fa-solid fa-magnifying-glass mx-2 text-blue-600"></i>
       </div>
-      <button className="px-8 py-1 mx-3 bg-white text-blue-600 font-semibold">Login</button>
+      {/* <button className="px-8 py-1 mx-3 bg-white text-blue-600 font-semibold">Login</button> */}
       <p className="text-white font-semibold mx-3 cursor-pointer">Become a Seller</p>
       <p className="text-white font-semibold mx-3">
         More&nbsp; <i className="fa-solid fa-angle-down cursor-pointer"></i>
       </p>
-      <p className="text-white font-semibold mx-3 cursor-pointer">
+      <p className="text-white font-semibold mx-3 cursor-pointer" onClick={() => navigate("/cart")}>
         <i className="fa-solid fa-cart-shopping text-lg"></i>&nbsp; Cart
       </p>
     </div>

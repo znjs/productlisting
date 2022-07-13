@@ -1,22 +1,15 @@
-import { useState } from "react";
 import { useCart } from "../../context";
 
-const Card = ({ item }) => {
+export const SaveForLaterCard = ({ item }) => {
   const { cartDispatch } = useCart();
-  const [wishlist, setWishlist] = useState(false);
   return (
-    <div className="w-[286px] ml-3 mt-2 bg-white hover:shadow-custom self-start">
-      <div className="w-full h-[320px] relative">
+    <div className=" bg-white hover:shadow-custom self-start flex p-3">
+      <div className="relative">
         <img
           alt="product"
           src={item.imageUrl}
-          className="h-full w-full object-cover object-top bg-white cursor-pointer"
+          className="h-36 w-40 object-cover object-top bg-white cursor-pointer"
         />
-        <i
-          onClick={() => setWishlist((prev) => !prev)}
-          className={`fa-solid fa-heart absolute top-0 right-0 p-3 ${
-            wishlist ? "text-red-500" : "text-gray-400"
-          } text-lg cursor-pointer`}></i>
       </div>
       <div className="p-2">
         <div>
@@ -41,22 +34,27 @@ const Card = ({ item }) => {
             {parseInt(((item.costPrice - item.sellingPrice) * 100) / item.costPrice)}% off
           </p>
         </div>
-        <div className="flex justify-between items-center">
-          <div>
-            Size:{" "}
-            {item.size.map((size, idx) => (
-              <span key={idx}>{size}&nbsp;</span>
-            ))}
-          </div>
-          <button
-            className="bg-green-600 text-white p-2 rounded-md"
-            onClick={() => cartDispatch({ type: "ADD_TO_CART", payload: { item } })}>
-            Add to cart
-          </button>
+        <div>
+          Size:{" "}
+          {item.size.map((size, idx) => (
+            <span key={idx}>{size}&nbsp;</span>
+          ))}
+        </div>
+        <div className="flex py-4">
+          <p
+            className="px-3 py-3 font-semibold cursor-pointer text-gray-600"
+            onClick={() => cartDispatch({ type: "MOVE_TO_CART", payload: { item } })}>
+            MOVE TO CART
+          </p>
+          <p
+            className="px-3 py-3 font-semibold cursor-pointer text-gray-600"
+            onClick={() =>
+              cartDispatch({ type: "REMOVE_ITEM_FROM_SAVE_LATER", payload: { _id: item._id } })
+            }>
+            REMOVE
+          </p>
         </div>
       </div>
     </div>
   );
 };
-
-export { Card };
